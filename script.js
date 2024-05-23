@@ -10,11 +10,28 @@ function getComputerChoice() {
         return 'Scissors'
     }
 }
-console.log(getComputerChoice())
 function getHumanChoice() {
-    let choice = prompt("What you choose? Rock,Paper Scissors?")
-    return choice;
+    let humanChoice = prompt("What you choose? Rock,Paper Scissors?")
+    return humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
 }
-console.log(getHumanChoice());
 let humanScore = 0;
 let computerScore = 0;
+function playRound (humanChoice,computerChoice) {
+    if(computerChoice === 'Rock ' && humanChoice === "Scissors") {
+        computerScore ++
+        console.log( `You Lose ${computerChoice} beat ${humanChoice}`); 
+    } else if (computerChoice === 'Paper' && humanChoice === 'Rock') {
+        computerScore++
+        console.log( `You Lose ${computerChoice} beat ${humanChoice}`); 
+    } else if (computerChoice === 'Scissors' && humanChoice === 'Paper') {
+        computerScore ++
+         console.log(`You Lose ${computerChoice} beat ${humanChoice}`);  
+    } else {
+        humanScore ++
+        console.log( `You Win ${humanChoice} beat ${computerChoice}`); 
+    }
+    
+ } 
+ const humanSelection = getHumanChoice();
+ const computerSelection = getComputerChoice()
+ playRound(humanSelection,computerSelection);
