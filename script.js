@@ -11,3 +11,10 @@ function getComputerChoice() {
     }
 }
 console.log(getComputerChoice())
+function getHumanChoice() {
+    let choice = prompt("What you choose? Rock,Paper Scissors?")
+    return choice;
+}
+console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
