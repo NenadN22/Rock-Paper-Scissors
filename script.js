@@ -1,7 +1,5 @@
 function getComputerChoice(number) {
    let randomNumber = Math.floor( Math.random() * number);
-   console.log(randomNumber)
-   console.log(typeof(randomNumber))
    if (randomNumber === 0 ) {
     return 'Rock';
    } else if (randomNumber === 1) {
@@ -11,5 +9,12 @@ function getComputerChoice(number) {
    }
     
 }
+function getHumanChoice(){
+    let choice = prompt("What do you choose? Rock,Paper");
+    return choice;
+    
+    
+}
 
 console.log(getComputerChoice(3))
+console.log(getHumanChoice());
