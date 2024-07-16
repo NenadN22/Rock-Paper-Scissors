@@ -15,29 +15,51 @@ function getHumanChoice(){
     
     
 }
-let humanScore = 0;
-let computerScore = 0;
 
-function playRound(humanChoice,computerChoice) {
-    if(humanChoice === 'Rock' && computerChoice === 'Scissors') {
-        console.log(`You Win ${humanChoice} beat ${computerChoice}`);
+
+function playGame () {
+    let humanScore = 0;
+    let computerScore = 0;
+   
+
+    function playRound(humanChoice,computerChoice) {
+    if(humanChoice === 'Rock' && computerChoice === 'Scissors') { 
         humanScore++;
+        console.log(humanScore)
+        console.log(`You Win ${humanChoice} beat ${computerChoice}`);
     } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
         console.log(`You Win ${humanChoice} beat ${computerChoice}`);
         humanScore++;
+        console.log(humanScore)
     } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
-        console.log(`You Win ${humanChoice} beat ${computerChoice}`);
         humanScore++;
+        console.log(humanScore)
+        console.log(`You Win ${humanChoice} beat ${computerChoice}`);
     } else if (humanChoice  !== computerChoice) {
+        computerScore++;
+        console.log(computerScore)
         console.log(`You Lose ${computerChoice}  beat ${humanChoice}`);
-        computerChoice ++;
     } else {
         console.log(`It's a draw!`);
     }
+    console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
     
 
+} 
+
+
+while (humanScore < 5 && computerScore < 5) {
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection,computerSelection)
+}
+if (humanScore === 5) {
+    console.log("Congratulations! You won the game!");
+} else {
+    console.log("Sorry, you lost the game. Better luck next time!");
+}
 }
 
-const humanSelection = getHumanChoice();
-const comupterSelection = getComputerChoice();
-playRound(humanSelection,comupterSelection)
+
+
+playGame();
