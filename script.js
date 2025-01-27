@@ -14,8 +14,6 @@ function getHumanChoice() {
     return humanPromptChoice[0].toUpperCase() + humanPromptChoice.slice(1);
 }
 
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice,computerChoice) {
     
@@ -24,16 +22,46 @@ function playRound(humanChoice,computerChoice) {
     }
      else if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
         console.log(`You Win  ${humanChoice} beat ${computerChoice}` )
+        humanScore ++
     } else if  (humanChoice === 'Paper' && computerChoice === 'Rock') {
         console.log(`You Win  ${humanChoice} beat ${computerChoice}` )
+        humanScore ++
     } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
         console.log(`You Win  ${humanChoice} beat ${computerChoice}` )
+        humanScore ++
     } else {
-        console.log(`You Lose  ${computerChoice} beat ${humanChoice} ` )
+        
+        computerScore ++
+        console.log (`You Lose  ${computerChoice} beat ${humanChoice} ` )
     }
 
 }
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
+let humanScore = 0;
+let computerScore = 0;
 
-playRound(humanSelection,computerSelection)
+function playGame() {
+    let winner;
+    
+    for (let i = 0;  i < 5; i++ ){
+        const humanSelection = getHumanChoice()
+        const computerSelection = getComputerChoice(3)
+        playRound(humanSelection,computerSelection)
+        console.log(humanScore)
+        console.log(computerScore)
+
+    }
+    if (humanScore > computerScore) {
+        winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
+    } else {
+        winner =`Sorry you lose,computer score is  ${computerScore} vs your score ${humanScore}`;
+        
+    }
+    console.log(winner)
+    
+  
+
+
+
+
+}
+playGame();
