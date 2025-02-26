@@ -8,10 +8,20 @@ function getComputerChoice(number) {
          return 'Scissors'
     }
 }
+let buttons = document.querySelectorAll('button');
 
 function getHumanChoice() {
-    let = humanPromptChoice = prompt('Rock,Paper or Scissors?')
-    return humanPromptChoice[0].toUpperCase() + humanPromptChoice.slice(1);
+    buttons.forEach(element => {
+        element.addEventListener('click',(event) => {
+            event.stopPropagation()
+            console.log(element.textContent)
+            return element.textContent
+        })
+        
+        
+        
+    });
+    
 }
 
 
@@ -42,14 +52,14 @@ let computerScore = 0;
 function playGame() {
     let winner;
     
-    for (let i = 0;  i < 5; i++ ){
+    // for (let i = 0;  i < 5; i++ ){
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice(3)
         playRound(humanSelection,computerSelection)
         console.log(humanScore)
         console.log(computerScore)
 
-    }
+    // }
     if (humanScore > computerScore) {
         winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
     } else {
@@ -65,3 +75,4 @@ function playGame() {
 
 }
 playGame();
+playRound()
