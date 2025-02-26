@@ -42,14 +42,14 @@ let computerScore = 0;
 function playGame() {
     let winner;
     
-    for (let i = 0;  i < 5; i++ ){
+    // for (let i = 0;  i < 5; i++ ){
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice(3)
         playRound(humanSelection,computerSelection)
         console.log(humanScore)
         console.log(computerScore)
 
-    }
+    // }
     if (humanScore > computerScore) {
         winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
     } else {
@@ -64,4 +64,4 @@ function playGame() {
 
 
 }
-playGame();
+// playGame();
