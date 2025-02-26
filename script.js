@@ -23,9 +23,10 @@ buttons.forEach(button => {
     
 })
 let roundResult = document.createElement('h3')
+let gameWinner = document.createElement('h2');
 
 
-
+let winner = document.createElement('p');
 function playRound(humanChoice,computerChoice) {
     
     
@@ -48,21 +49,22 @@ function playRound(humanChoice,computerChoice) {
         roundResult.textContent = (`You Lose  ${computerChoice} beat ${humanChoice} ` )
     }
   
+  
     if (humanScore > computerScore) {
-        winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
+        winner.textContent =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
     } else if (computerScore > humanScore) {
-        winner =`Sorry you lose,computer score is  ${computerScore} vs your score ${humanScore}`;
+        winner.textContent =`Sorry you lose,computer score is  ${computerScore} vs your score ${humanScore}`;
         
     } else {
-        winner = `It's a draw ${computerScore} vs your score ${humanScore}` 
+        winner.textContent = `It's a draw ${computerScore} vs your score ${humanScore}` 
     }
-    let gameWinner = '';
+    
     if (computerScore === 5 ) {
-        console.log(gameWinner = `Sorry you lost game winner is Computer by  ${computerScore} vs ${humanScore}`)
+        gameWinner.textContent = `Sorry you lost game winner is Computer by  ${computerScore} vs ${humanScore}`
         return;
         
     } if (humanScore === 5) {
-        console.log(gameWinner = `Nice job you are game winner by ${humanScore} vs  ${computerScore}  `)
+        gameWinner.textContent = `Nice job you are game winner by ${humanScore} vs  ${computerScore}  `
         return;
 
     }
@@ -71,4 +73,6 @@ function playRound(humanChoice,computerChoice) {
 }
 let humanScore = 0;
 let computerScore = 0;
+display.appendChild(winner)
 display.appendChild(roundResult)
+display.appendChild(gameWinner)
