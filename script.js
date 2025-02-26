@@ -9,10 +9,18 @@ function getComputerChoice(number) {
     }
 }
 
-function getHumanChoice() {
-    let = humanPromptChoice = prompt('Rock,Paper or Scissors?')
-    return humanPromptChoice[0].toUpperCase() + humanPromptChoice.slice(1);
-}
+const buttons = document.querySelectorAll('button')
+let humanButtonChoice = ''
+buttons.forEach(button => {
+    button.addEventListener('click', () => {; 
+    humanButtonChoice = button.textContent;
+    console.log(humanButtonChoice)
+    playRound(humanButtonChoice,getComputerChoice(3))
+  
+})
+    
+
+})
 
 
 function playRound(humanChoice,computerChoice) {
@@ -34,34 +42,34 @@ function playRound(humanChoice,computerChoice) {
         computerScore ++
         console.log (`You Lose  ${computerChoice} beat ${humanChoice} ` )
     }
+    for (let i = 0;  i < 5; i++ ){
+        console.log(humanScore)
+        console.log(computerScore)
+
+    }
+    if (humanScore > computerScore) {
+        winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
+    } else if (computerScore > humanScore) {
+        winner =`Sorry you lose,computer score is  ${computerScore} vs your score ${humanScore}`;
+        
+    } else {
+        winner = `It's a draw computer score is  ${computerScore} vs your score ${humanScore}` 
+    }
+    console.log(winner)
 
 }
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame() {
-    let winner;
+// function playGame() {
+//     let winner;
     
-    // for (let i = 0;  i < 5; i++ ){
-        const humanSelection = getHumanChoice()
-        const computerSelection = getComputerChoice(3)
-        playRound(humanSelection,computerSelection)
-        console.log(humanScore)
-        console.log(computerScore)
-
-    // }
-    if (humanScore > computerScore) {
-        winner =`Good job you win,your score is  ${humanScore} vs computer score ${computerScore}`;
-    } else {
-        winner =`Sorry you lose,computer score is  ${computerScore} vs your score ${humanScore}`;
-        
-    }
-    console.log(winner)
+    
     
   
 
 
 
 
-}
+// }
 // playGame();
